@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: MySpringBootApplication
+  profiles:
+    active: default
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+custom:
+  env:
+    var1: 2
+    var2: 8
+
+
+logging:
+  level:
+    root: INFO
+    com:
+      yourpackage:
+        services: DEBUG
+  pattern:
+    console: "%cyan(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%highlight(%-5level)] [%cyan(%thread)] %green(%logger{50}) - %msg%n"
+  file:
+    name: ${LOG_PATH:-./logs/myCustomLogs}/spring.log
+  additivity:
+    com:
+      yourpackage:
+        services: false
+  encoding: UTF-8
+

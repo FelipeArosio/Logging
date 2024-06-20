@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console appender with ANSI colors -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%cyan(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%highlight(%-5level)] [%cyan(%thread)] %green(%logger{50}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger level and appender -->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+    </root>
+
+    <!-- Custom logger for services -->
+    <logger name="com.yourpackage.services" level="DEBUG"/>
+
+    <!-- Save logs in a subfolder -->
+    <property name="LOG_PATH" value="./logs/myCustomLogs"/>
+</configuration>
